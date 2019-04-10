@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+
+use Illuminate\Http\Request;
+use Session;
 
 class RegisterController extends Controller
 {
@@ -49,9 +51,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
     }
 
@@ -64,9 +65,32 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function register(Request $request) {
+        // Kiểm tra dữ liệu vào
+        $allRequest  = $request->all();	
+        $validator = $this->validator($allRequest);
+     
+        if ($validator->fails()) {
+            // Dữ liệu vào không thỏa điều kiện sẽ thông báo lỗi
+            return redirect()->route('landing')->withErrors($validator)->withInput();
+        } else {   
+            // Dữ liệu vào hợp lệ sẽ thực hiện tạo người dùng dưới csdl
+            if( $this->create($allRequest)) {
+                // Insert thành công sẽ hiển thị thông báo
+                Session::flash('success', 'Đăng ký thành viên thành công!');
+                return redirect()->route('landing');
+            } else {
+                // Insert thất bại sẽ hiển thị thông báo lỗi
+                Session::flash('error', 'Đăng ký thành viên thất bại!');
+                return redirect()->route('landing');
+            }
+        }
     }
 }

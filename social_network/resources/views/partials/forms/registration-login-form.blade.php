@@ -20,28 +20,32 @@
     <div class="tab-content">
         <div class="tab-pane active" id="home" role="tabpanel" data-mh="log-tab">
             <div class="title h6">Register to Olympus</div>
-            <form class="content">
+            @if ($errors->any())
+                {!! implode('', $errors->all('<div>:message</div>')) !!}
+            @endif
+            <form class="content" method="POST" action="{{route('register')}}">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row">
                     <div class="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group label-floating is-empty">
                             <label class="control-label">First Name</label>
-                            <input class="form-control" placeholder="" type="text">
+                            <input name="first_name" class="form-control" placeholder="" type="text">
                         </div>
                     </div>
                     <div class="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group label-floating is-empty">
                             <label class="control-label">Last Name</label>
-                            <input class="form-control" placeholder="" type="text">
+                            <input name="last_name" class="form-control" placeholder="" type="text">
                         </div>
                     </div>
                     <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <div class="form-group label-floating is-empty">
                             <label class="control-label">Your Email</label>
-                            <input class="form-control" placeholder="" type="email">
+                            <input name="email" class="form-control" placeholder="" type="email">
                         </div>
                         <div class="form-group label-floating is-empty">
                             <label class="control-label">Your Password</label>
-                            <input class="form-control" placeholder="" type="password">
+                            <input name="password" class="form-control" placeholder="" type="password">
                         </div>
 
                         <div class="form-group date-time-picker label-floating">
@@ -69,7 +73,7 @@
                             </div>
                         </div>
 
-                        <a href="#" class="btn btn-purple btn-lg full-width">Complete Registration!</a>
+                        <button type="submit" class="btn btn-purple btn-lg full-width">Complete Registration!</button>
                     </div>
                 </div>
             </form>
@@ -77,16 +81,20 @@
 
         <div class="tab-pane" id="profile" role="tabpanel" data-mh="log-tab">
             <div class="title h6">Login to your Account</div>
-            <form class="content">
+            @if ($errors->any())
+                {!! implode('', $errors->all('<div>:message</div>')) !!}
+            @endif
+            <form class="content" method="POST" action="{{route('login')}}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row">
                     <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <div class="form-group label-floating is-empty">
                             <label class="control-label">Your Email</label>
-                            <input class="form-control" placeholder="" type="email">
+                            <input name="email" class="form-control" placeholder="" type="email">
                         </div>
                         <div class="form-group label-floating is-empty">
                             <label class="control-label">Your Password</label>
-                            <input class="form-control" placeholder="" type="password">
+                            <input name="password" class="form-control" placeholder="" type="password">
                         </div>
 
                         <div class="remember">
@@ -100,7 +108,7 @@
                             <a href="#" class="forgot">Forgot my Password</a>
                         </div>
 
-                        <a href="#" class="btn btn-lg btn-primary full-width">Login</a>
+                        <button type="submit" class="btn btn-lg btn-primary full-width">Login</button>
 
                         <p>Don’t you have an account? <a href="#">Register Now!</a> it’s really simple and you can start enjoing all the benefits!</p>
                     </div>

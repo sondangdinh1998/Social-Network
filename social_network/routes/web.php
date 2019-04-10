@@ -13,11 +13,21 @@
 
 Route::get('/', function () {
     return view('landing');
-});
+})->name('landing');;
+
+Route::post('/login', [
+    'as' => 'login',
+    'uses' => 'Auth\LoginController@login'
+]);
+
+Route::post('/register', [
+    'as' => 'register',
+    'uses' => 'Auth\RegisterController@register'
+]);
 
 Route::get('/profile', function(){
     return view('profile');
-});
+})->name('profile');
 
 /*
  * Route created by yenbka
