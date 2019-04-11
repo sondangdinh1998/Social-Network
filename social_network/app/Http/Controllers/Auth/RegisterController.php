@@ -88,7 +88,7 @@ class RegisterController extends Controller
                 return redirect()->route('landing');
             } else {
                 // Insert thất bại sẽ hiển thị thông báo lỗi
-                Session::flash('error', 'Đăng ký thành viên thất bại!');
+                Session::flash('errorRegister', 'Đăng ký thành viên thất bại!');
                 return redirect()->route('landing');
             }
         }

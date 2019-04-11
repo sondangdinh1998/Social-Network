@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('landing');
-})->name('landing');;
+})->name('landing');
 
 Route::post('/login', [
     'as' => 'login',
@@ -25,9 +25,14 @@ Route::post('/register', [
     'uses' => 'Auth\RegisterController@register'
 ]);
 
-Route::get('/profile', function(){
+Route::get('/profile', function (){
     return view('profile');
 })->name('profile');
+
+Route::get('/profile/{user_id}', [
+    'as' => 'profileID',
+    'user' => 'ProfileController@index'
+]);
 
 /*
  * Route created by yenbka

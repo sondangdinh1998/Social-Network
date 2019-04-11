@@ -5,12 +5,12 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#home" role="tab">
+            <a class="nav-link active" data-toggle="tab" href="#registerForm" role="tab">
                 <svg class="olymp-login-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-login-icon"></use></svg>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#profile" role="tab">
+            <a class="nav-link" data-toggle="tab" href="#loginForm" role="tab">
                 <svg class="olymp-register-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-register-icon"></use></svg>
             </a>
         </li>
@@ -18,13 +18,29 @@
 
     <!-- Tab panes -->
     <div class="tab-content">
-        <div class="tab-pane active" id="home" role="tabpanel" data-mh="log-tab">
+        <div class="tab-pane active" id="registerForm" role="tabpanel" data-mh="log-tab">
             <div class="title h6">Register to Olympus</div>
-            @if ($errors->any())
-                {!! implode('', $errors->all('<div>:message</div>')) !!}
+            @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $err)
+                        {{$err}}<br />
+                    @endforeach
+                </div>
+            @endif
+
+            @if(session('errorRegister'))
+                <div class="alert alert-danger">
+                    {{session('errorRegister')}}
+                </div>
+            @endif
+
+            @if(session('success'))
+                <div class="alert alert-danger">
+                    {{session('success')}}
+                </div>
             @endif
             <form class="content" method="POST" action="{{route('register')}}">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row">
                     <div class="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group label-floating is-empty">
@@ -79,13 +95,23 @@
             </form>
         </div>
 
-        <div class="tab-pane" id="profile" role="tabpanel" data-mh="log-tab">
+        <div class="tab-pane" id="loginForm" role="tabpanel" data-mh="log-tab">
             <div class="title h6">Login to your Account</div>
-            @if ($errors->any())
-                {!! implode('', $errors->all('<div>:message</div>')) !!}
+            @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $err)
+                        {{$err}}<br />
+                    @endforeach
+                </div>
+            @endif
+
+            @if(session('errorLogin'))
+                <div class="alert alert-danger">
+                    {{session('errorLogin')}}
+                </div>
             @endif
             <form class="content" method="POST" action="{{route('login')}}">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">                
                 <div class="row">
                     <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <div class="form-group label-floating is-empty">

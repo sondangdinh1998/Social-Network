@@ -39,7 +39,8 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        // parent::__construct();
+        // $this->middleware('guest')->except('logout');
     }
 
     public function login(Request $request) {
@@ -56,7 +57,6 @@ class LoginController extends Controller
         ];
         $validator = Validator::make($request->all(), $rules, $messages);
         
-        
         if ($validator->fails()) {
             // Điều kiện dữ liệu không hợp lệ sẽ chuyển về trang đăng nhập và thông báo lỗi
             return redirect()->route('landing')->withErrors($validator)->withInput();
@@ -70,7 +70,7 @@ class LoginController extends Controller
                 return redirect()->route('profile');
             } else {
                 // Kiểm tra không đúng sẽ hiển thị thông báo lỗi
-                Session::flash('error', 'Email hoặc mật khẩu không đúng!');
+                Session::flash('errorLogin', 'Email hoặc mật khẩu không đúng!');
                 return redirect()->route('landing');
             }
         }
