@@ -34,6 +34,10 @@ Route::get('/profile/{id}', [
     'uses' => 'ProfileController@index'
 ]);
 
+Route::get('/profile/{id}/save_info', function() {
+    return view('profile_save_info');
+})->name('get_profile_save_info');
+
 Route::post('/profile/{id}/save_info', [
     'as' => 'profile_save_info',
     'uses' => 'ProfileController@save_info'

@@ -361,7 +361,7 @@
 
 							<ul class="account-settings">
 								<li>
-									<a href="{{route('profile_save_info', ['id' => Auth::id()])}}">
+									<a href="{{route('get_profile_save_info', ['id' => Auth::id()])}}">
 
 										<svg class="olymp-menu-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-menu-icon"></use></svg>
 

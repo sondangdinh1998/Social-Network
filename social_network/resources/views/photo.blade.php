@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
 @include('partials.headers-navigations.left-panel-responsive')
 
 @include('partials.headers-navigations.right-panel')

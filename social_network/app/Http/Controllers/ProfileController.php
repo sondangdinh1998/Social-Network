@@ -30,5 +30,7 @@ class ProfileController extends Controller
         return view('profile', ['profile_info'=>$profile_info]);
     }
 
-    
+    public function save_info($id){
+        
+    }
 }
