@@ -23,7 +23,7 @@
 		<div class="control-block">
 
 			<div class="control-icon more has-items">
-				<svg class="olymp-happy-face-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-happy-face-icon"></use></svg>
+				<svg class="olymp-happy-face-icon"><use xlink:href="{{asset('svg-icons/sprites/icons.svg#olymp-happy-face-icon')}}"></use></svg>
 				<div class="label-avatar bg-blue">6</div>
 
 				<div class="more-dropdown more-with-triangle triangle-top-center">
@@ -37,7 +37,7 @@
 						<ul class="notification-list friend-requests">
 							<li>
 								<div class="author-thumb">
-									<img src="img/avatar55-sm.jpg" alt="author">
+									<img src="{{asset('img/avatar55-sm.jpg')}}" alt="author">
 								</div>
 								<div class="notification-event">
 									<a href="#" class="h6 notification-friend">Tamara Romanoff</a>
@@ -65,7 +65,7 @@
 
 							<li>
 								<div class="author-thumb">
-									<img src="img/avatar56-sm.jpg" alt="author">
+									<img src="{{asset('img/avatar56-sm.jpg')}}" alt="author">
 								</div>
 								<div class="notification-event">
 									<a href="#" class="h6 notification-friend">Tony Stevens</a>
@@ -93,7 +93,7 @@
 
 							<li class="accepted">
 								<div class="author-thumb">
-									<img src="img/avatar57-sm.jpg" alt="author">
+									<img src="{{asset('img/avatar57-sm.jpg')}}" alt="author">
 								</div>
 								<div class="notification-event">
 									You and <a href="#" class="h6 notification-friend">Mary Jane Stark</a> just became friends. Write on <a href="#" class="notification-link">her wall</a>.
@@ -110,7 +110,7 @@
 
 							<li>
 								<div class="author-thumb">
-									<img src="img/avatar58-sm.jpg" alt="author">
+									<img src="{{asset('img/avatar58-sm.jpg')}}" alt="author">
 								</div>
 								<div class="notification-event">
 									<a href="#" class="h6 notification-friend">Stagg Clothing</a>
@@ -132,7 +132,7 @@
 								</span>
 
 								<div class="more">
-									<svg class="olymp-three-dots-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-three-dots-icon"></use></svg>
+									<svg class="olymp-three-dots-icon"><use xlink:href="{{asset('svg-icons/sprites/icons.svg#olymp-three-dots-icon')}}"></use></svg>
 								</div>
 							</li>
 
@@ -144,7 +144,7 @@
 			</div>
 
 			<div class="control-icon more has-items">
-				<svg class="olymp-chat---messages-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-chat---messages-icon"></use></svg>
+				<svg class="olymp-chat---messages-icon"><use xlink:href="{{asset('svg-icons/sprites/icons.svg#olymp-chat---messages-icon')}}"></use></svg>
 				<div class="label-avatar bg-purple">2</div>
 
 				<div class="more-dropdown more-with-triangle triangle-top-center">
@@ -158,7 +158,7 @@
 						<ul class="notification-list chat-message">
 							<li class="message-unread">
 								<div class="author-thumb">
-									<img src="img/avatar59-sm.jpg" alt="author">
+									<img src="{{asset('img/avatar59-sm.jpg')}}" alt="author">
 								</div>
 								<div class="notification-event">
 									<a href="#" class="h6 notification-friend">Diana Jameson</a>
@@ -175,7 +175,7 @@
 
 							<li>
 								<div class="author-thumb">
-									<img src="img/avatar60-sm.jpg" alt="author">
+									<img src="{{asset('img/avatar60-sm.jpg')}}" alt="author">
 								</div>
 								<div class="notification-event">
 									<a href="#" class="h6 notification-friend">Jake Parker</a>
@@ -235,7 +235,7 @@
 			</div>
 
 			<div class="control-icon more has-items">
-				<svg class="olymp-thunder-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-thunder-icon"></use></svg>
+				<svg class="olymp-thunder-icon"><use xlink:href="{{asset('svg-icons/sprites/icons.svg#olymp-thunder-icon')}}"></use></svg>
 
 				<div class="label-avatar bg-primary">8</div>
 
@@ -351,7 +351,7 @@
 
 			<div class="author-page author vcard inline-items more">
 				<div class="author-thumb">
-					<img alt="author" src="img/author-page.jpg" class="avatar">
+					<img alt="author" src="{{asset('img/author-page.jpg')}}" class="avatar">
 					<span class="icon-status online"></span>
 					<div class="more-dropdown more-with-triangle">
 						<div class="mCustomScrollbar" data-mcs-theme="dark">
@@ -361,7 +361,7 @@
 
 							<ul class="account-settings">
 								<li>
-									<a href="29-YourAccount-AccountSettings.html">
+									<a href="{{route('profile_save_info', ['id' => Auth::id()])}}">
 
 										<svg class="olymp-menu-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-menu-icon"></use></svg>
 
@@ -459,11 +459,11 @@
 					</div>
 				</div>
 				
-				<a href="02-ProfilePage.html" class="author-name fn">
+				<a href="{{route('profile_id', ['id' => Auth::id()])}}" class="author-name fn">
 					<div class="author-title">
 						{{Auth::user()->first_name}} <svg class="olymp-dropdown-arrow-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
 					</div>
-					<span class="author-subtitle">SPACE COWBOY</span>
+					<!-- <span class="author-subtitle">SPACE COWBOY</span> -->
 				</a>
 			
 			</div>

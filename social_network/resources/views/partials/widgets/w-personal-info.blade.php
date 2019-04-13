@@ -3,7 +3,7 @@
 <ul class="widget w-personal-info item-block">
 	<li>
 		<span class="title">About Me:</span>
-		<span class="text">Hi, I’m James, I’m 36 and I work as a Digital Designer for the  “Daydreams” Agency in Pier 56.</span>
+		<span class="text">{{$profile_info->about_me}}</span>
 	</li>
 	<li>
 		<span class="title">Favourite TV Shows:</span>

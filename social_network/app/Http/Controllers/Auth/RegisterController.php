@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 use Illuminate\Http\Request;
 use Session;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -64,12 +66,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $check1 = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        $check2 = Profile::create([
+            'birth_date' => Carbon::parse($data['birth_date']),
+            'gender' => $data['gender']
+        ]);
+
+        if ($check1 && $check2) {
+            return true;
+        } else return false;
     }
 
     public function register(Request $request) {
@@ -89,7 +100,7 @@ class RegisterController extends Controller
             } else {
                 // Insert thất bại sẽ hiển thị thông báo lỗi
                 Session::flash('errorRegister', 'Đăng ký thành viên thất bại!');
-                return redirect()->route('landing');
+                return redirect()->route('landing')->withInput();
             }
         }
     }

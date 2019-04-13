@@ -66,7 +66,7 @@
 
                         <div class="form-group date-time-picker label-floating">
                             <label class="control-label">Your Birthday</label>
-                            <input name="datetimepicker" value="10/24/1984" />
+                            <input name="birth_date" value="10/24/1984" />
                             <span class="input-group-addon">
 											<svg class="olymp-calendar-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-calendar-icon"></use></svg>
 										</span>
@@ -74,9 +74,9 @@
 
                         <div class="form-group label-floating is-select">
                             <label class="control-label">Your Gender</label>
-                            <select class="selectpicker form-control">
-                                <option value="MA">Male</option>
-                                <option value="FE">Female</option>
+                            <select name="gender" class="selectpicker form-control">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                         </div>
 

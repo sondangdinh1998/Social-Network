@@ -25,13 +25,18 @@ Route::post('/register', [
     'uses' => 'Auth\RegisterController@register'
 ]);
 
-Route::get('/profile', function (){
+Route::get('/profile', function () {
     return view('profile');
 })->name('profile');
 
-Route::get('/profile/{user_id}', [
-    'as' => 'profileID',
-    'user' => 'ProfileController@index'
+Route::get('/profile/{id}', [
+    'as' => 'profile_id',
+    'uses' => 'ProfileController@index'
+]);
+
+Route::post('/profile/{id}/save_info', [
+    'as' => 'profile_save_info',
+    'uses' => 'ProfileController@save_info'
 ]);
 
 /*
@@ -60,7 +65,7 @@ Route::get('/video', function(){
 
 Route::get('/newsfeed', function(){
     return view('newsfeed');
-});
+})->name('newsfeed');
 
 Route::get('/about', function(){
     return view('about');
