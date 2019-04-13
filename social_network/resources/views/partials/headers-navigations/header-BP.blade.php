@@ -376,7 +376,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="#">
+									<a href="{{route('logout')}}">
 										<svg class="olymp-logout-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-logout-icon"></use></svg>
 
 										<span>Log Out</span>
@@ -461,7 +461,7 @@
 				
 				<a href="{{route('profile_id', ['id' => Auth::id()])}}" class="author-name fn">
 					<div class="author-title">
-						{{Auth::user()->first_name}} <svg class="olymp-dropdown-arrow-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
+						(Auth::user()) {{Auth::user()->first_name}}<svg class="olymp-dropdown-arrow-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-dropdown-arrow-icon"></use></svg>
 					</div>
 					<!-- <span class="author-subtitle">SPACE COWBOY</span> -->
 				</a>

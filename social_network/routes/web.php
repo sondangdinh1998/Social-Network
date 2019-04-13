@@ -25,6 +25,11 @@ Route::post('/register', [
     'uses' => 'Auth\RegisterController@register'
 ]);
 
+Route::get('logout', [
+    'as' => 'logout',
+    'uses' => 'Auth\LoginController@logout'
+]);
+
 Route::get('/profile', function () {
     return view('profile');
 })->name('profile');

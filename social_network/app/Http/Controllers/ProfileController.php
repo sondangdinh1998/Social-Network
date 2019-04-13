@@ -11,6 +11,10 @@ use Auth;
 class ProfileController extends Controller
 {
     //
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function secure($id){
         $user = User::where('id', $id)->first();
 
