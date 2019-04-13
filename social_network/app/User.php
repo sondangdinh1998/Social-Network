@@ -29,7 +29,7 @@ class User extends Authenticatable{
     }
 
     public function profile(){
-    	return $this->hasOne('App\profiles');
+    	return $this->hasOne('App\Profile');
     }
 
     public function hobbies(){

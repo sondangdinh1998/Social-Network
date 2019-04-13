@@ -1,48 +1,62 @@
 
 <!-- Personal Information Form  -->
+@if(count($errors) > 0)
+    <div class="alert alert-danger">
+        @foreach ($errors->all() as $err)
+            {{$err}}<br />
+        @endforeach
+    </div>
+@endif
 
-<form>
+@if(!empty($status))
+    <div class="alert alert-danger">
+        {{$status}}
+	</div>
+@endif
+
+<form method="POST" action="{{route('profile_save_info', ['id' => Auth::id()])}}">
+	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	<div class="row">
 
 		<div class="col col-lg-6 col-md-6 col-sm-12 col-12">
 			<div class="form-group label-floating">
 				<label class="control-label">First Name</label>
-				<input class="form-control" placeholder="" type="text" value="James">
+				<input name="first_name" class="form-control" placeholder="" type="text" value="{{$user->first_name}}" required>
 			</div>
 
 			<div class="form-group label-floating">
 				<label class="control-label">Your Email</label>
-				<input class="form-control" placeholder="" type="email" value="jspiegel@yourmail.com">
+				<input name="email" class="form-control" placeholder="" type="email" value="{{$user->email}}" readonly>
 			</div>
 
 			<div class="form-group date-time-picker label-floating">
 				<label class="control-label">Your Birthday</label>
-				<input name="datetimepicker" value="10/24/1984" />
+				<input name="birth_date" value="{{$profile->birth_date}}" />
 				<span class="input-group-addon">
-										<svg class="olymp-month-calendar-icon icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-month-calendar-icon"></use></svg>
-									</span>
+					<svg class="olymp-month-calendar-icon icon"><use xlink:href="{{asset('svg-icons/sprites/icons.svg#olymp-month-calendar-icon')}}"></use></svg>
+				</span>
 			</div>
 		</div>
 
 		<div class="col col-lg-6 col-md-6 col-sm-12 col-12">
 			<div class="form-group label-floating">
 				<label class="control-label">Last Name</label>
-				<input class="form-control" placeholder="" type="text" value="Spiegel">
+				<input name="last_name" class="form-control" placeholder="" type="text" value="{{$user->last_name}}">
 			</div>
 
 			<div class="form-group label-floating">
-				<label class="control-label">Your Website</label>
-				<input class="form-control" placeholder="" type="email" value="daydreamzagency.com">
+				<label class="control-label">Your Address</label>
+				<input name="address" class="form-control" placeholder="" type="text" value="{{$profile->address}}">
 			</div>
 
 
 			<div class="form-group label-floating is-empty">
 				<label class="control-label">Your Phone Number</label>
-				<input class="form-control" placeholder="" type="text">
+				<input name="phone" class="form-control" placeholder="" type="text" value="{{$profile->phone}}">
 			</div>
 		</div>
 
-		<div class="col col-lg-4 col-md-4 col-sm-12 col-12">
+		<!-- <div class="col col-lg-4 col-md-4 col-sm-12 col-12">
 			<div class="form-group label-floating is-select">
 				<label class="control-label">Your Country</label>
 				<select class="selectpicker form-control">
@@ -68,18 +82,23 @@
 					<option value="NY">New York</option>
 				</select>
 			</div>
-		</div>
+		</div> -->
 		<div class="col col-lg-6 col-md-6 col-sm-12 col-12">
 			<div class="form-group label-floating">
-				<label class="control-label">Write a little description about you</label>
-				<textarea class="form-control" placeholder="">Hi, I’m James, I’m 36 and I work as a Digital Designer for the  “Daydreams” Agency in Pier 56</textarea>
+				<label class="control-label">About You</label>
+				<textarea name="about_me" class="form-control" placeholder="">{{$profile->about_me}}</textarea>
 			</div>
 
 			<div class="form-group label-floating is-select">
 				<label class="control-label">Your Gender</label>
-				<select class="selectpicker form-control">
-					<option value="MA">Male</option>
-					<option value="FE">Female</option>
+				<select name="gender" class="selectpicker form-control">
+					@if ($profile->gender == "Male")
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>
+					@else
+					<option value="Female">Female</option>
+					<option value="Male">Male</option>
+					@endif
 				</select>
 			</div>
 
@@ -101,9 +120,14 @@
 
 			<div class="form-group label-floating is-select">
 				<label class="control-label">Status</label>
-				<select class="selectpicker form-control">
-					<option value="MA">Married</option>
-					<option value="FE">Not Married</option>
+				<select name="status" class="selectpicker form-control">
+					@if ($profile->status == "Married")
+					<option value="Married">Married</option>
+					<option value="NotMarried">Not Married</option>
+					@else
+					<option value="NotMarried">Not Married</option>
+					<option value="Married">Married</option>
+					@endif
 				</select>
 			</div>
 
@@ -139,10 +163,10 @@
 				<i class="fab fa-spotify c-spotify" aria-hidden="true"></i>
 			</div>
 		</div>
-		<div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+		<!-- <div class="col col-lg-6 col-md-6 col-sm-12 col-12">
 			<button class="btn btn-secondary btn-lg full-width">Restore all Attributes</button>
-		</div>
-		<div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+		</div> -->
+		<div class="col col-lg-12 col-md-12 col-sm-12 col-12">
 			<button class="btn btn-primary btn-lg full-width">Save all Changes</button>
 		</div>
 
