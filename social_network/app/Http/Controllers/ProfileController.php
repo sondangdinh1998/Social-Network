@@ -51,13 +51,13 @@ class ProfileController extends Controller
     }
 
     protected function update(array $data, $id) {
-        $check1 = User::where('id', $id)->update([
+        User::where('id', $id)->update([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
         ]);
 
-        $check2 = Profile::where('id', $id)->update([
+        Profile::where('id', $id)->update([
             'about_me' => $data['about_me'],
             'birth_date' => $data['birth_date'],
             'address' => $data['address'],
@@ -77,7 +77,7 @@ class ProfileController extends Controller
             // Dữ liệu vào hợp lệ sẽ thực hiện tạo người dùng dưới csdl
             $this->update($allRequest, $id);
             // Insert thành công sẽ hiển thị thông báo
-            $status = "Đăng ký thành viên thành công!";
+            $status = "Cập nhật thông tin cá nhân thành công!";
             return view('profile_save_info', ['user' => Auth::user(), 'profile' => Profile::find($id), 'status' => $status]);           
         }
     }

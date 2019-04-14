@@ -77,6 +77,7 @@ Route::get('/newsfeed', function(){
     return view('newsfeed');
 })->name('newsfeed');
 
-Route::get('/about', function(){
-    return view('about');
-});
+Route::get('/about/{id}', [
+    'as' => 'about',
+    'uses' => 'AboutController@index'
+]);

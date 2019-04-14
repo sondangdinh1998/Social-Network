@@ -27,7 +27,7 @@
 			<li class="nav-item">
 				<a class="nav-link" data-toggle="tab" href="#notification" role="tab">
 					<div class="control-icon has-items">
-						<svg class="olymp-thunder-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-thunder-icon"></use></svg>
+						<svg class="olymp-thunder-icon"><use xlink:href="{{asset('svg-icons/sprites/icons.svg#olymp-thunder-icon')}}"></use></svg>
 						<div class="label-avatar bg-primary">8</div>
 					</div>
 				</a>
@@ -36,7 +36,7 @@
 			<li class="nav-item">
 				<a class="nav-link" data-toggle="tab" href="#search" role="tab">
 					<svg class="olymp-magnifying-glass-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-magnifying-glass-icon"></use></svg>
-					<svg class="olymp-close-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-close-icon"></use></svg>
+					<svg class="olymp-close-icon"><use xlink:href="{{asset('svg-icons/sprites/icons.svg#olymp-close-icon')}}"></use></svg>
 				</a>
 			</li>
 		</ul>

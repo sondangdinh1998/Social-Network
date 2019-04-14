@@ -21,7 +21,7 @@
 			<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
 				<ul class="your-profile-menu">
 					<li>
-						<a href="28-YourAccount-PersonalInformation.html">Personal Information</a>
+						<a href="{{route('get_profile_save_info', ['id' => Auth::id()])}}">Personal Information</a>
 					</li>
 					<li>
 						<a href="29-YourAccount-AccountSettings.html">Account Settings</a>
@@ -32,9 +32,9 @@
 					<li>
 						<a href="31-YourAccount-HobbiesAndInterests.html">Hobbies and Interests</a>
 					</li>
-					<li>
+					<!-- <li>
 						<a href="32-YourAccount-EducationAndEmployement.html">Education and Employement</a>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>

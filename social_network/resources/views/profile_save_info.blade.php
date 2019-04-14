@@ -1,9 +1,7 @@
 @extends('layouts.master')
 <!-- <body> -->
 @section('content')
-@include('partials.headers-navigations.profile-settings-responsive')
-
-@include('partials.headers-navigations.left-panel')
+{{--@include('partials.headers-navigations.left-panel')--}}
 
 @include('partials.headers-navigations.left-panel-responsive')
 

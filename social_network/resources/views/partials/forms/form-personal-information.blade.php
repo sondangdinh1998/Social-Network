@@ -1,4 +1,3 @@
-
 <!-- Personal Information Form  -->
 @if(count($errors) > 0)
     <div class="alert alert-danger">
@@ -50,7 +49,7 @@
 			</div>
 
 
-			<div class="form-group label-floating is-empty">
+			<div class="form-group label-floating">
 				<label class="control-label">Your Phone Number</label>
 				<input name="phone" class="form-control" placeholder="" type="text" value="{{$profile->phone}}">
 			</div>
@@ -89,6 +88,34 @@
 				<textarea name="about_me" class="form-control" placeholder="">{{$profile->about_me}}</textarea>
 			</div>
 
+			<!-- <div class="form-group label-floating is-select">
+				<label class="control-label">Your Gender</label>
+				<select name="gender" class="selectpicker form-control">
+					@if ($profile->gender == "Male")
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>
+					@else
+					<option value="Female">Female</option>
+					<option value="Male">Male</option>
+					@endif
+				</select>
+			</div> -->
+
+			<!-- <div class="form-group label-floating is-empty">
+				<label class="control-label">Religious Belifs</label>
+				<input class="form-control" placeholder="" type="text">
+			</div> -->
+		</div>
+		<div class="col col-lg-6 col-md-6 col-sm-12 col-12">
+			<!-- <div class="form-group label-floating is-empty">
+				<label class="control-label">Your Birthplace</label>
+				<input class="form-control" placeholder="" type="text">
+			</div> -->
+
+			<!-- <div class="form-group label-floating">
+				<label class="control-label">Your Occupation</label>
+				<input class="form-control" placeholder="" type="text" value="UI/UX Designer">
+			</div> -->
 			<div class="form-group label-floating is-select">
 				<label class="control-label">Your Gender</label>
 				<select name="gender" class="selectpicker form-control">
@@ -101,23 +128,6 @@
 					@endif
 				</select>
 			</div>
-
-			<div class="form-group label-floating is-empty">
-				<label class="control-label">Religious Belifs</label>
-				<input class="form-control" placeholder="" type="text">
-			</div>
-		</div>
-		<div class="col col-lg-6 col-md-6 col-sm-12 col-12">
-			<div class="form-group label-floating is-empty">
-				<label class="control-label">Your Birthplace</label>
-				<input class="form-control" placeholder="" type="text">
-			</div>
-
-			<div class="form-group label-floating">
-				<label class="control-label">Your Occupation</label>
-				<input class="form-control" placeholder="" type="text" value="UI/UX Designer">
-			</div>
-
 			<div class="form-group label-floating is-select">
 				<label class="control-label">Status</label>
 				<select name="status" class="selectpicker form-control">
@@ -131,10 +141,10 @@
 				</select>
 			</div>
 
-			<div class="form-group label-floating">
+			<!-- <div class="form-group label-floating">
 				<label class="control-label">Political Incline</label>
 				<input class="form-control" placeholder="" type="text" value="Democrat">
-			</div>
+			</div> -->
 		</div>
 		<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 			<div class="form-group with-icon label-floating">
