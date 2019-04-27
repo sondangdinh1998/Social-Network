@@ -15,12 +15,12 @@
 				<ul class="nav nav-tabs" role="tablist">
 					<li class="nav-item">
 						<a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-expanded="true">
-							<svg class="olymp-photos-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-photos-icon"></use></svg>
+							<svg class="olymp-photos-icon"><use xlink:href="{{asset('svg-icons/sprites/icons.svg#olymp-photos-icon')}}"></use></svg>
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-expanded="false">
-							<svg class="olymp-albums-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-albums-icon"></use></svg>
+							<svg class="olymp-albums-icon"><use xlink:href="{{asset('svg-icons/sprites/icons.svg#olymp-albums-icon')}}"></use></svg>
 						</a>
 					</li>
 				</ul>

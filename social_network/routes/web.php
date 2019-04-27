@@ -49,6 +49,11 @@ Route::post('/profile/{id}/save_info', [
     'uses' => 'ProfileController@profile_save_info'
 ]);
 
+Route::post('/profile/{id}/update_profile_photo', [
+    'as' => 'update_profile_photo',
+    'uses' => 'ProfileController@update_profile_photo'
+]);
+
 /*
  * Route created by yenbka
  */

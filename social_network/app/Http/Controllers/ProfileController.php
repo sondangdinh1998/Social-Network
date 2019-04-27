@@ -9,6 +9,7 @@ use App\Profile;
 use Auth;
 use Illuminate\Support\Facades\Validator;
 use Session;
+use Response;
 
 class ProfileController extends Controller
 {
@@ -79,6 +80,37 @@ class ProfileController extends Controller
             // Insert thành công sẽ hiển thị thông báo
             $status = "Cập nhật thông tin cá nhân thành công!";
             return view('profile_save_info', ['user' => Auth::user(), 'profile' => Profile::find($id), 'status' => $status]);           
+        }
+    }
+
+    public function update_profile_photo(Request $request, $id) {
+        if (!$this->secure($id)) return Response::json($response);
+
+        $messages = [
+            'image.required' => trans('validation.required'),
+            'image.mimes' => trans('validation.mimes'),
+            'image.max.file' => trans('validation.max.file'),
+        ];
+        $validator = Validator::make(['image' => $request->file('image')], [
+            'image' => 'required|mimes:jpeg,jpg,png,gif|max:2048'
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect()->route('profile_id', ['user' => Auth::user()])->withErrors($validator)->withInput();
+        }
+        else {
+            $img = $request->file('image');
+            // $img = Image::make($img)->resize(36,36);
+            $file_name = md5(uniqid() . time()) . '.' . $img->getClientOriginalExtension();
+            if ($img->storeAs('profile_photo', $file_name)){
+                $profile = Profile::find($id);
+                $profile->profile_path = $file_name;
+                $profile->save();
+                return redirect()->route('profile_id', ['id' => Auth::id(), 'status' => 'Success']);
+            }
+            else {
+                return redirect()->route('profile_id', ['id' => Auth::id(), 'status' => 'Failed']);        
+            }
         }
     }
 }

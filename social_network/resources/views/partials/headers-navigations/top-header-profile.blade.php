@@ -50,7 +50,7 @@
 							</div>
 						</div>
 
-						<div class="control-block-button">
+						<!-- <div class="control-block-button">
 							<a href="35-YourAccount-FriendsRequests.html" class="btn btn-control bg-blue">
 								<svg class="olymp-happy-face-icon"><use xlink:href="{{asset('svg-icons/sprites/icons.svg#olymp-happy-face-icon')}}"></use></svg>
 							</a>
@@ -64,7 +64,7 @@
 
 								<ul class="more-dropdown more-with-triangle triangle-bottom-right">
 									<li>
-										<a href="#" data-toggle="modal" data-target="#update-header-photo">Update Profile Photo</a>
+										<a href="#" data-toggle="modal" data-target="#update-profile-photo">Update Profile Photo</a>
 									</li>
 									<li>
 										<a href="#" data-toggle="modal" data-target="#update-header-photo">Update Header Photo</a>
@@ -74,10 +74,10 @@
 									</li>
 								</ul>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="top-header-author">
-						<a href="02-ProfilePage.html" class="author-thumb">
+						<a href="#" class="author-thumb" data-toggle="modal" data-target="#update-header-photo">
 							<img src="{{asset('img/author-main1.jpg')}}" alt="author">
 						</a>
 						<div class="author-content">

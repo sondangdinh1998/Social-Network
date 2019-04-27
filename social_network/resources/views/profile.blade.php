@@ -60,6 +60,19 @@
 			<div class="ui-block-title">
 				<h6 class="title">Profile Intro</h6>
 			</div>
+			@if(count($errors) > 0)
+				<div class="alert alert-danger">
+					@foreach ($errors->all() as $err)
+						{{$err}}<br />
+					@endforeach
+				</div>
+			@endif
+
+			@if(!empty($status))
+				<div class="alert alert-danger">
+					{{$status}}
+				</div>
+			@endif
 			<div class="ui-block-content">
 
 				@include('partials.widgets.w-personal-info')
